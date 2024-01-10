@@ -1,4 +1,4 @@
-FROM ros:humble
+FROM osrf/ros:humble-desktop-full
 
 
 RUN apt-get update \
@@ -25,6 +25,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh /entrypoint.sh
+COPY bashrc /home/${USERNAME}/.bashrc
 
 ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]
 
